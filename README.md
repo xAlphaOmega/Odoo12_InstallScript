@@ -23,10 +23,10 @@ There are a few things you can configure, this is the most used list:<br/>
 #### 3. Make the script executable
 ```
 sudo chmod +x odoo_install.sh
-sudo chmod +x ubuntu_install.sh
+sudo chmod +x Ubuntu_install.sh
 ```
 ##### 4. Execute the script:
 ```
 sudo ./odoo_install.sh
-sudo ./ubuntu_install.sh
+sudo ./Ubuntu_install.sh
 ```
