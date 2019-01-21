@@ -8,8 +8,8 @@ This script can be safely used in a multi-odoo code base server because the defa
 
 ##### 1. Download the script:
 ```
-sudo wget https://github.com/bassammannaa/Odoo12_InstallScript/blob/master/odoo_install.sh
-sudo wget https://raw.githubusercontent.com/bassammannaa/Odoo12_InstallScript/blob/master/Ubuntu_install.sh
+sudo wget https://raw.githubusercontent.com/bassammannaa/Odoo12_InstallScript/master/odoo_install.sh
+sudo wget https://raw.githubusercontent.com/bassammannaa/Odoo12_InstallScript/master/Ubuntu_install.sh
 ```
 ##### 2. Modify the parameters as you wish.
 There are a few things you can configure, this is the most used list:<br/>
