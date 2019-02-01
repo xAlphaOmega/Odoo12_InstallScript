@@ -1,0 +1,12 @@
+1.) Connect with ssh client to your Ubuntu server
+2.) Use your favorite text editor (vim, nano…) to edit /etc/rc.local file
+
+sudo nano /etc/rc.local
+
+3.) Paste this into /etc/rc.local file
+
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069
+
+4.) Reboot your Ubuntu server to see effect
+
+sudo reboot
