@@ -1,3 +1,12 @@
+Before You start
+You have to make sure RC.LOCAL service is up
+
+sudo systemctl start rc-local.service
+sudo systemctl status rc-local.service
+
+
+IF running do the folowing:
+
 1.) Connect with ssh client to your Ubuntu server
 2.) Use your favorite text editor (vim, nano…) to edit /etc/rc.local file
 
