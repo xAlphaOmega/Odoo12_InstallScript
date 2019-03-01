@@ -23,7 +23,18 @@ There are a few things you can configure, this is the most used list:<br/>
 ```
 sudo chmod +x odoo_install.sh
 ```
+### Important note:
+folder odoo\custom\addons is not working properly due security setup, add your module to main addons folder
+
 ##### 4. Execute the script:
 ```
 sudo ./odoo_install.sh
+```
+
+##### 5. Change the default port to 80:
+
+
+##### 6. Print to PDF will not work untill change the owner of file (wkhtmltoimage) to odoo user:
+```
+chown odoo wkhtmltoimage
 ```
