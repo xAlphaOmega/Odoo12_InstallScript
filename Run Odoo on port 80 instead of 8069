@@ -17,6 +17,13 @@ sudo nano /etc/rc.local
 
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069
 
+/*
+#!/bin/bash
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069
+exit 0
+
+*/
+
 4.) Reboot your Ubuntu server to see effect
 
 sudo reboot
