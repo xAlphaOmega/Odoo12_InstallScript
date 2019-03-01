@@ -32,7 +32,7 @@ sudo ./odoo_install.sh
 ```
 
 ##### 5. Change the default port to 80:
-
+1- [Introduction](https://github.com/bassammannaa/Ubuntu-Training/blob/master/Introduction/Introduction.md)
 
 ##### 6. Print to PDF will not work untill change the owner of file (wkhtmltoimage) to odoo user:
 ```
