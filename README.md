@@ -36,5 +36,6 @@ sudo ./odoo_install.sh
 
 ##### 6. Print to PDF will not work untill change the owner of file (wkhtmltoimage) to odoo user:
 ```
+cd /usr/bin
 chown odoo wkhtmltoimage
 ```
