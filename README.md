@@ -30,8 +30,9 @@ folder odoo\custom\addons is not working properly due security setup, add your m
 ```
 sudo ./odoo_install.sh
 ```
+##### 5. Change the default to port 80 instead of 8069
+[Click her and folow the instructions](https://github.com/bassammannaa/Odoo12_InstallScript/blob/master/Run%20Odoo%20on%20port%2080%20instead%20of%208069)
 
-##### 5. [Change the default to port 80 instead of 8069](https://github.com/bassammannaa/Odoo12_InstallScript/blob/master/Run%20Odoo%20on%20port%2080%20instead%20of%208069)
 
 ##### 6. Print to PDF will not work untill change the owner of file (wkhtmltoimage) to odoo user:
 ```
