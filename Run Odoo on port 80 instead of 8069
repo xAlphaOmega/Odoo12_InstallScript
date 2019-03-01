@@ -6,7 +6,7 @@ sudo systemctl start rc-local.service
 sudo systemctl status rc-local.service
 
 
-IF RC.LOCAL service is up then you might do the folowing:
+IF RC.LOCAL service is up (if it is not up, please find the below action required) then you might do the folowing:
 
 1.) Connect with ssh client to your Ubuntu server
 2.) Use your favorite text editor (vim, nano…) to edit /etc/rc.local file
