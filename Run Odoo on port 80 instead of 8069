@@ -20,3 +20,34 @@ iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069
 4.) Reboot your Ubuntu server to see effect
 
 sudo reboot
+
+IF RC.LOCAL service is not up then you might do the following:
+
+sudo nano /etc/systemd/system/rc-local.service
+
+# then copy the following to this new file and save
+
+[Unit]
+ Description=/etc/rc.local Compatibility
+ ConditionPathExists=/etc/rc.local
+
+[Service]
+ Type=forking
+ ExecStart=/etc/rc.local start
+ TimeoutSec=0
+ StandardOutput=tty
+ RemainAfterExit=yes
+ SysVStartPriority=99
+
+[Install]
+ WantedBy=multi-user.target
+ 
+ # create file /etc/rc.local
+ printf '%s\n' '#!/bin/bash' 'exit 0' | sudo tee -a /etc/rc.local
+ 
+ # add execute permissions to file /etc/rc.local
+ sudo chmod +x /etc/rc.local
+ 
+ # enable the service
+ sudo systemctl enable rc-local
+ 
