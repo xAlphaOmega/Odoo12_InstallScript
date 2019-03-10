@@ -19,6 +19,12 @@ There are a few things you can configure, this is the most used list:<br/>
 ```IS_ENTERPRISE``` will install the Enterprise version on top of ```12.0``` if you set it to ```True```, set it to ```False``` if you want the community version of Odoo 12.<br/>
 ```OE_SUPERADMIN``` is the master password for this Odoo installation.<br/>
 
+#### 2.1 Make sure current ubuntu server is UTF-8
+```
+locale
+```
+if not you have to make it utf-8 before install odoo
+
 #### 3. Make the script executable
 ```
 sudo chmod +x odoo_install.sh
