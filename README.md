@@ -40,7 +40,12 @@ sudo ./odoo_install.sh
 [Click her and folow the instructions](https://github.com/bassammannaa/Odoo12_InstallScript/blob/master/Run%20Odoo%20on%20port%2080%20instead%20of%208069)
 
 
-##### 6. Print to PDF will not work untill change the owner of file (wkhtmltoimage) to odoo user:
+##### 6.Install Odoo requirements:
+```
+pip install -r requirements.txt
+```
+
+##### 7. Print to PDF will not work untill change the owner of file (wkhtmltoimage) to odoo user:
 ```
 cd /usr/bin
 chown odoo wkhtmltoimage
