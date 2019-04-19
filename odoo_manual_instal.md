@@ -46,8 +46,8 @@ sudo service odoo status
 # 6) Change mode file to allow modify and Modify config by adding strong password (admin_passwd = STRONG_PASSWORD)
 sudo chmod 777 
 sudo nano /etc/odoo/odoo.conf
-Ctrl + O then enter
-Ctrl + x then enter
+# Ctrl + O then enter
+# Ctrl + x then enter
 
 # 9) Restart odoo service
 sudo service odoo restart
@@ -56,7 +56,7 @@ sudo service odoo status
 # 10) check odoo log file, no error should appear
 sudo chmod 777 /var/log/odoo/
 nano /var/log/odoo/odoo-server.log
-Ctrl + x
+# Ctrl + x
 
 # 11) Install npm and check the version (should be equal or over 4.2.0)
 sudo apt-get update && sudo apt-get -y upgrade
@@ -67,7 +67,7 @@ sudo apt-get install -y nodejs
 npm -v
 
 # 12) Install RTLCSS
-sudonpm install -g rtlcss
+sudo npm install -g rtlcss
 
 # 13) Install wkhtmltopdf and check the version {wkhtmltopdf 0.12.4 (with patched qt)}
 sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
@@ -85,6 +85,6 @@ sudo service rc-local status
 sudo nano /etc/rc.local
 
 --> 15-3) add new line {iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069} before line {exit 0}
-ctrl o + enter
-ctrl x
+# ctrl o + enter
+# ctrl x
 ```
