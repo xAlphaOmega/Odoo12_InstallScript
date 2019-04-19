@@ -43,23 +43,22 @@ sudo apt-get install odoo
 sudo service odoo start
 sudo service odoo status
 
-# 6) Change mode file to allow modify
-sudo chmod 777 /etc/odoo/odoo.conf
+# 6) Change mode file to allow modify and Modify config by adding strong password (admin_passwd = STRONG_PASSWORD)
+sudo chmod 777 
+sudo nano /etc/odoo/odoo.conf
+Ctrl + O then enter
+Ctrl + x then enter
 
-# 7) Modify config by adding strong password (admin_passwd = STRONG_PASSWORD)
-Ctrl + O
-Ctrl + x
-
-# 8) Restart odoo service
+# 9) Restart odoo service
 sudo service odoo restart
 sudo service odoo status
 
-# 9) check odoo log file, no error should appear
+# 10) check odoo log file, no error should appear
 sudo chmod 777 /var/log/odoo/
 nano /var/log/odoo/odoo-server.log
 Ctrl + x
 
-# 10) Install npm and check the version (should be equal or over 4.2.0)
+# 11) Install npm and check the version (should be equal or over 4.2.0)
 sudo apt-get update && sudo apt-get -y upgrade
 sudo curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -67,10 +66,10 @@ sudo curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 sudo apt-get install -y nodejs
 npm -v
 
-# 11) Install RTLCSS
+# 12) Install RTLCSS
 sudonpm install -g rtlcss
 
-# 12) Install wkhtmltopdf and check the version {wkhtmltopdf 0.12.4 (with patched qt)}
+# 13) Install wkhtmltopdf and check the version {wkhtmltopdf 0.12.4 (with patched qt)}
 sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
 
 sudo tar xf  wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
@@ -78,14 +77,14 @@ cd ./wkhtmltox/bin/
 sudo cp -R ./* /usr/bin/
 wkhtmltopdf -V
 
-# 13) Allow access to odoo from port 80
---> 13-1) check if service rc-local is up?
+# 14) Allow access to odoo from port 80
+--> 14-1) check if service rc-local is up?
 sudo service rc-local status
 
---> 13-2) if up then access file rc.local
+--> 14-2) if up then access file rc.local
 sudo nano /etc/rc.local
 
---> 13-3) add new line {iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069} before line {exit 0}
+--> 15-3) add new line {iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069} before line {exit 0}
 ctrl o + enter
 ctrl x
 ```
