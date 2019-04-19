@@ -89,7 +89,13 @@ iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069} befo
 # ctrl o + enter
 # ctrl x
 
-15) Reboot
+# 15)
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
+git --version
+
+16) Reboot
 sudo reboot
 ```
 
