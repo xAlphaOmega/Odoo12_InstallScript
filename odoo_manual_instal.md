@@ -88,4 +88,8 @@ sudo nano /etc/rc.local
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069} before line 
 # ctrl o + enter
 # ctrl x
+
+15) Reboot
+sudo reboot
 ```
+
