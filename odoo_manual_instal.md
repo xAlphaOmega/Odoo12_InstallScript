@@ -84,7 +84,8 @@ sudo service rc-local status
 --> 14-2) if up then access file rc.local
 sudo nano /etc/rc.local
 
---> 15-3) add new line {iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069} before line {exit 0}
+--> 14-3) add the folowing line before line {exit 0}
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069} before line 
 # ctrl o + enter
 # ctrl x
 ```
