@@ -97,5 +97,21 @@ git --version
 
 16) Reboot
 sudo reboot
+
+17) Open Odoo and configure the system as the following:
+ 1- Configur the company and link the proper curreny 
+ 2- Add arabic languge then modify the date format for Arabic + English languges as (%Y/%m/%d)
+ 3- Modify system parameters and the following lines:
+  -- > web.base.url \ IP:8069
+  -- > web.url \ IP:8069
+  -- > web.base.url.freeze \ IP:8069
+ 
+ 
+ 
+
+
+
+
+
 ```
 
