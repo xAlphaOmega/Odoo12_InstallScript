@@ -109,8 +109,38 @@ db_password = False
 addons_path = /opt/odoo/addons
 logfile = /var/log/odoo/odoo.log
    
+Change odoo.conf owner:
+=======================
+sudo chown odoo: /etc/odoo.conf
+sudo chmod 640 /etc/odoo.conf
 
 
+Create a service to run Odoo:
+==============================
+sudo nano /etc/systemd/system/odoo.service
+
+Copy the following:
+===================
+[Unit]
+Description=Odoo
+Documentation=http://www.odoo.com
+[Service]
+# Ubuntu/Debian convention:
+Type=simple
+User=odoo12
+ExecStart=/opt/odoo/odoo/odoo-bin -c /etc/odoo.conf
+[Install]
+WantedBy=default.target
+
+Change service owner:
+=======================
+sudo chmod 755 /etc/systemd/system/odoo.service
+sudo chown root: /etc/systemd/system/odoo.service
+
+Test Odoo:
+==========
+sudo systemctl start odoo.service
+sudo tail -f /var/log/odoo/odoo.log
 
 
 
