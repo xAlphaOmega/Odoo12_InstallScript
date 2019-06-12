@@ -1,6 +1,5 @@
 # Odoo Manual Install
 
-```
 Install nano
 ==================
 apt-get install update
@@ -113,13 +112,6 @@ sudo reboot
   -- > web.url \ IP:8069
   -- > web.base.url.freeze \ IP:8069
  
- 
- 
 
-
-
-
-
-```
 
 
