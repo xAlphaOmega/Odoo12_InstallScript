@@ -5,12 +5,14 @@ Install nano
 apt-get install update
 apt-get install nano
 
-
 Apply UTF-8
 =============
+# run the following command
 locale
+
 # if the results dosn't contain utf8 for all lines, please do the following
 sudo nano /etc/default/locale
+
 # add the following then ctrl + o then enter then ctrl + x
 LANG=en_US.UTF-8
 LANGUAGE=
@@ -27,6 +29,92 @@ LC_TELEPHONE="en_US.UTF-8"
 LC_MEASUREMENT="en_US.UTF-8"
 LC_IDENTIFICATION="en_US.UTF-8"
 LC_ALL=en_US.UTF-8
+
+
+# Reboot Server
+sudo reboot
+
+Update the server
+==================
+sudo apt-get update
+sudo apt-get upgrade
+
+
+Create a System User
+====================
+sudo adduser --system --home=/opt/odoo --group odoo
+
+
+Install and Configure PostgreSQL database server (create new user "odoo12" and password "***")
+================================================================================================
+sudo apt-get install postgresql
+sudo su - postgres
+createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo12
+exit
+
+
+Install pip 3:
+==============
+sudo apt-get install -y python3-pip
+
+
+Install dependencies using pip3:
+================================
+sudo pip3 install Babel chardet decorator docutils ebaysdk feedparser gevent greenlet html2text Jinja2 
+libsass lxml Mako MarkupSafe mock num2words ofxparse passlib Pillow psutil psycopg2 pydot pyldap pyparsing 
+PyPDF2 pyserial python-dateutil pytz pyusb PyYAML qrcode reportlab requests suds-jurko vatnumber vobject 
+Werkzeug XlsxWriter xlwt xlrd
+
+
+Install these web dependencies:
+================================
+sudo apt-get install -y npm
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+sudo npm install -g less less-plugin-clean-css
+sudo apt-get install -y node-less
+
+
+wkhtmltopdf is required to generate PDF reports:
+=================================================
+sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
+
+
+Install Git:
+============
+sudo apt-get install git
+
+
+Switch to Odoo user (to be use odoo user for download Odoo system) then exit:
+==========================================================================
+sudo su - odoo -s /bin/bash
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 12.0 --single-branch
+exit
+
+Configure Odoo:
+===============
+sudo mkdir /var/log/odoo
+sudo chown odoo:root /var/log/odoo
+sudo cd /etc/
+sudo nano odoo.conf
+
+copy the following:
+
+[options]
+; This is the password that allows database operations:
+; admin_passwd = admin
+db_host = False
+db_port = False
+db_user = odoo
+db_password = False
+addons_path = /opt/odoo/addons
+logfile = /var/log/odoo/odoo.log
+   
+
+
+
+
+
+
 
 
 # 2) Upgrade & update before install postgres
