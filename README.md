@@ -12,7 +12,7 @@ File# 1
 sudo wget https://raw.githubusercontent.com/bassammannaa/Odoo12_InstallScript/master/odoo_install.sh
 OR
 File# 2
-sudo wget https://raw.githubusercontent.com/bassammannaa/Odoo12_InstallScript/master/odoo.sh
+sudo wget https://raw.githubusercontent.com/bassammannaa/Odoo12_InstallScript/master/Odoo.sh
 ```
 ##### 2. Modify the parameters as you wish.
 There are a few things you can configure, this is the most used list:<br/>
@@ -32,6 +32,7 @@ if not you have to make it utf-8 before install odoo
 #### 3. Make the script executable
 ```
 sudo chmod +x odoo_install.sh
+sudo chmod +x Odoo.sh
 ```
 ### Important note:
 folder odoo\custom\addons is not working properly due security setup, add your module to main addons folder
