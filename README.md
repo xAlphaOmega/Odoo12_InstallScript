@@ -43,7 +43,7 @@ File# 1
 sudo ./odoo_install.sh
 OR
 File# 2
-sudo ./odoo.sh
+sudo ./Odoo.sh
 ```
 ##### 5. Change the default to port 80 instead of 8069
 [Click her and folow the instructions](https://github.com/bassammannaa/Odoo12_InstallScript/blob/master/Run%20Odoo%20on%20port%2080%20instead%20of%208069)
