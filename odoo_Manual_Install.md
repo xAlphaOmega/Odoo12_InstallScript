@@ -1,6 +1,13 @@
 # Odoo Manual Install
 
+
+
 ```
+Install nano
+apt-get install update
+apt-get install nano
+
+
 # 1) Apply UTF-8
 locale
 # if the results dosn't contain utf8 for all lines, please do the following
