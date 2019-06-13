@@ -113,6 +113,13 @@ sudo reboot
   -- > web.url \ IP:8069
   -- > web.base.url.freeze \ IP:8069
  
+ For Backup module:
+ ==================
+ pip3 install --upgrade pip
+ sudo rm -r /usr/lib/python3/dist-packages/OpenSSL/ 
+ sudo pip install pyOpenSSL==16.2.0
+ sudo pip install pysftp
+ 
  
  
 
