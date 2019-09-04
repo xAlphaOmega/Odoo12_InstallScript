@@ -94,7 +94,7 @@ Configure Odoo:
 ===============
 sudo mkdir /var/log/odoo
 sudo chown odoo:root /var/log/odoo
-sudo cd /etc/
+cd /etc/
 sudo nano odoo.conf
 
 copy the following:
