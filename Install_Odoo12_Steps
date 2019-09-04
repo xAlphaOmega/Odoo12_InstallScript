@@ -2,8 +2,8 @@
 
 Install nano
 ==================
-apt-get install update
-apt-get install nano
+sudo apt-get install update
+sudo apt-get install nano
 
 Apply UTF-8
 =============
