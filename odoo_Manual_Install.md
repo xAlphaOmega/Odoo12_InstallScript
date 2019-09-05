@@ -127,7 +127,7 @@ sudo nano /etc/rc.local
 
 --> if active: add the folowing line before line {exit 0}
 -----------------------------------------------------------------------------------
-iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069}
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069
 # ctrl o + enter
 # ctrl x
 
@@ -164,8 +164,9 @@ sudo nano /etc/rc.local
 #
 # By default this script does nothing.
 
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069
 exit 0
-iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069}
+
 
 --> if in-active: run the service then check the status it should be active
 ------------------------------------------------------------------------------------------------------------------
