@@ -131,25 +131,70 @@ iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069}
 # ctrl o + enter
 # ctrl x
 
+--> if in-active: create file rc.local 
+-------------------------------------------------
+sudo nano /etc/rc.local
+# ctrl o + enter
+# enter
+
+--> if in-active: change file rc.local permission then check the permission
+------------------------------------------------------------------------------------------------------------------
+sudo chmod +x /etc/rc.local
+cd /etc/
+ls -all
+
+
+--> if in-active: add data to file rc.local before activate the service
+------------------------------------------------------------------------------------------------------------------
+sudo nano /etc/rc.local
+
+>> Add below content and save
+
+
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+exit 0
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069}
+
+--> if in-active: run the service then check the status it should be active
+------------------------------------------------------------------------------------------------------------------
+sudo service rc-local start
+sudo service rc-local status
 
 
 # install git
-======
+========
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install git
 git --version
 
-16) Reboot
+# Reboot the server
+=============
 sudo reboot
 
-17) Open Odoo and configure the system as the following:
+
+
+# Open Odoo and configure the system as the following:
+=====================================
  1- Configur the company and link the proper curreny 
  2- Add arabic languge then modify the date format for Arabic + English languges as (%Y/%m/%d)
  3- Modify system parameters and the following lines:
   -- > web.base.url \ IP:8069
   -- > web.url \ IP:8069
   -- > web.base.url.freeze \ IP:8069
+ 
  
  For Backup module:
  ==================
