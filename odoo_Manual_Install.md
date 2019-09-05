@@ -8,11 +8,16 @@ sudo apt-get install update
 sudo apt-get install nano
 
 
-# 1) Apply UTF-8
+# Apply UTF-8
+=========
 locale
+
 # if the results dosn't contain utf8 for all lines, please do the following
+============================================
 sudo nano /etc/default/locale
+
 # add the following then ctrl + o then enter then ctrl + x
+====================================
 LANG=en_US.UTF-8
 LANGUAGE=
 LC_CTYPE="en_US.UTF-8"
@@ -29,8 +34,14 @@ LC_MEASUREMENT="en_US.UTF-8"
 LC_IDENTIFICATION="en_US.UTF-8"
 LC_ALL=en_US.UTF-8
 
+# Restart the server
+==============
+sudo reboot
 
-# 2) Upgrade & update before install postgres
+
+
+# Upgrade & update before install postgres
+============================
 sudo apt-get update && apt upgrade
 sudo apt-get install postgresql
 sudo service postgresql start
