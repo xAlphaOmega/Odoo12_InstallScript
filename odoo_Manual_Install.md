@@ -1,5 +1,6 @@
 # Odoo Manual Install
 
+Before you start remote the server using SSH client using ROOT user
 
 
 ```
@@ -47,47 +48,65 @@ sudo apt-get install postgresql
 sudo service postgresql start
 sudo service postgresql status
 
-# 3) Change the current user to root then start get the package
+# Change the current user to root then start get the package
+=======================================
 sudo su root
 wget -O - https://nightly.odoo.com/odoo.key | apt-key add -
 echo "deb http://nightly.odoo.com/12.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list
 exit
 
-# 4) Update before start install odoo
+# Update the server before start install odoo
+======================
 sudo apt-get update
 sudo apt-get install odoo
 
-# 5) Activate the service and check its status
+# Activate the service and check its status
+===========================
 sudo service odoo start
 sudo service odoo status
 
-# 6) Change mode file to allow modify and Modify config by adding strong password (admin_passwd = STRONG_PASSWORD)
-sudo chmod 777 
+# Change mode file to allow modify and Modify config by adding strong password (admin_passwd = STRONG_PASSWORD)
+============================================================================
+cd /etc/odoo/
+sudo chmod 777 odoo.conf
+ls -al
 sudo nano /etc/odoo/odoo.conf
 # Ctrl + O then enter
 # Ctrl + x then enter
 
-# 9) Restart odoo service
+# Restart odoo service
+===============
 sudo service odoo restart
 sudo service odoo status
 
-# 10) check odoo log file, no error should appear
+# check odoo log file, no error should appear
+================================
+cd /
+cd /var/log/odoo/
 sudo chmod 777 /var/log/odoo/
 nano /var/log/odoo/odoo-server.log
 # Ctrl + x
 
-# 11) Install npm and check the version (should be equal or over 4.2.0)
+
+# Install npm and check the version (should be equal or over 4.2.0)
+==========================================
 sudo apt-get update && sudo apt-get -y upgrade
 sudo curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 sudo apt-get install -y nodejs
+apt install npm
 npm -v
 
-# 12) Install RTLCSS
+
+# Install RTLCSS
+==============
 sudo npm install -g rtlcss
 
-# 13) Install wkhtmltopdf and check the version {wkhtmltopdf 0.12.4 (with patched qt)}
+
+
+# Install wkhtmltopdf and check the version {wkhtmltopdf 0.12.4 (with patched qt)}
+=====================================================
 sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
 
 sudo tar xf  wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
@@ -95,19 +114,27 @@ cd ./wkhtmltox/bin/
 sudo cp -R ./* /usr/bin/
 wkhtmltopdf -V
 
-# 14) Allow access to odoo from port 80
---> 14-1) check if service rc-local is up?
+
+# Allow access to odoo from port 80
+=======================
+--> check if service rc-local is active of in-active ?  
+------------------------------------------------------------------------------
 sudo service rc-local status
 
---> 14-2) if up then access file rc.local
+--> if active: access file rc.local
+-------------------------------------------------
 sudo nano /etc/rc.local
 
---> 14-3) add the folowing line before line {exit 0}
-iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069} before line 
+--> if active: add the folowing line before line {exit 0}
+-----------------------------------------------------------------------------------
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069}
 # ctrl o + enter
 # ctrl x
 
-# 15)
+
+
+# install git
+======
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install git
