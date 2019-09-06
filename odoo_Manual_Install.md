@@ -1,6 +1,6 @@
 # Odoo Manual Install
 
-Before you start remote the server using SSH client using ROOT user
+Before you start remote the server using SSH client by ROOT user
 
 
 ```
