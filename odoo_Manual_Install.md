@@ -221,8 +221,10 @@ sudo reboot
    --> save the changes : (ctrl + X) then Y then ENTER
    -- > reboot the server
    
-   
- 
+  -->create DB user to be use for accessing DB
+create user bmannaa with encrypted password 'mypass';
+ALTER USER bmannaa CREATEDB
+ALTER USER bmannaa SUPERUSER 
  
  
 
