@@ -197,12 +197,31 @@ sudo reboot
   -- > web.base.url.freeze \ IP:8069
  
  
- For Backup module:
- ==================
+ # Setup Backup module:
+ ==============
  pip3 install --upgrade pip
  sudo rm -r /usr/lib/python3/dist-packages/OpenSSL/ 
  sudo pip install pyOpenSSL==16.2.0
  sudo pip install pysftp
+ 
+ 
+ # allow remote connections to PostgreSQL database server (v10)
+ ======================================
+ nano /etc/postgresql/10/main/postgresql.conf
+ 
+ --> search for listen_addresses then un-mark it and change the value to be (*) instade of (localhost)
+ listen_addresses = '*'
+ 
+ --> save the changes : (ctrl + X) then Y then ENTER
+ 
+  nano /etc/postgresql/10/main/postgresql.conf
+  
+   --> search for attribute (# IPv4 local connections:) then change it to (0.0.0.0/0)  instead of (127.0.0.1/32)
+  host    all             all             0.0.0.0/0               md5
+   --> save the changes : (ctrl + X) then Y then ENTER
+   -- > reboot the server
+   
+   
  
  
  
