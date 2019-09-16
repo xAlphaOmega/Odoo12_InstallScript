@@ -106,7 +106,8 @@ sudo npm install -g rtlcss
 
 # Install number to word
 ==============
-sudo pip install num2words
+sudo apt-get install python3-pip
+sudo pip3 install num2words
 
 
 
