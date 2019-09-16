@@ -104,6 +104,11 @@ npm -v
 sudo npm install -g rtlcss
 
 
+# Install number to word
+==============
+sudo pip install num2words
+
+
 
 # Install wkhtmltopdf and check the version {wkhtmltopdf 0.12.4 (with patched qt)}
 =====================================================
