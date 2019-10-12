@@ -73,7 +73,7 @@ ls -al
 sudo nano /etc/odoo/odoo.conf
 
 # add the following:
-#============
+#>>>>>>>>>>>>>>>>>>>>> START >>>>>>>>>>>>>>>>>>>>>>>
 [options]
 
 
@@ -173,16 +173,7 @@ limit_request = 8192
 # Maximum number of threads processing concurrently cron jobs (default 2).
 max_cron_threads = 1
 
-
-
-
-
-
-
-
-
-
-
+#>>>>>>>>>>>>>>>>>>>>> END >>>>>>>>>>>>>>>>>>>>>>>
 # Ctrl + O then enter
 # Ctrl + x then enter
 
@@ -207,21 +198,17 @@ sudo curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 sudo apt-get install -y nodejs
-apt install npm
+sudo apt install npm
 npm -v
-
 
 # Install RTLCSS
 ==============
 sudo npm install -g rtlcss
 
-
 # Install number to word
 ==============
 sudo apt-get install python3-pip
 sudo pip3 install num2words
-
-
 
 # Install wkhtmltopdf and check the version {wkhtmltopdf 0.12.4 (with patched qt)}
 =====================================================
@@ -231,7 +218,6 @@ sudo tar xf  wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
 cd ./wkhtmltox/bin/
 sudo cp -R ./* /usr/bin/
 wkhtmltopdf -V
-
 
 # Allow access to odoo from port 80
 =======================
@@ -243,6 +229,7 @@ sudo service rc-local status
 -------------------------------------------------
 sudo nano /etc/rc.local
 
+
 --> if active: add the folowing line before line {exit 0}
 -----------------------------------------------------------------------------------
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069
@@ -252,6 +239,7 @@ iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8069
 --> if in-active: create file rc.local 
 -------------------------------------------------
 sudo nano /etc/rc.local
+"Write anything in order to create the file"
 # ctrl o + enter
 # enter
 
@@ -266,7 +254,7 @@ ls -all
 ------------------------------------------------------------------------------------------------------------------
 sudo nano /etc/rc.local
 
->> Add below content and save
+>> Add below content and save after remove whatever you entered before
 
 
 #!/bin/sh -e
@@ -303,6 +291,15 @@ git --version
 =============
 sudo reboot
 
+# Create DB User Odoo
+#==============
+sudo -u postgres psql
+\du
+>> no user found except postgress
+create user bmannaa with encrypted password 'mypass';
+ALTER USER bmannaa CREATEDB
+ALTER USER bmannaa SUPERUSER 
+\du
 
 
 # Open Odoo and configure the system as the following:
@@ -313,14 +310,6 @@ sudo reboot
   -- > web.base.url \ IP:8069
   -- > web.url \ IP:8069
   -- > web.base.url.freeze \ IP:8069
- 
- 
- # Setup Backup module:
- ==============
- pip3 install --upgrade pip
- sudo rm -r /usr/lib/python3/dist-packages/OpenSSL/ 
- sudo pip install pyOpenSSL==16.2.0
- sudo pip install pysftp
  
  
  # allow remote connections to PostgreSQL database server (v10)
