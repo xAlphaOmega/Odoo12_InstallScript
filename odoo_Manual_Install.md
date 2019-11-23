@@ -73,107 +73,7 @@ ls -al
 sudo nano /etc/odoo/odoo.conf
 
 # add the following:
-#>>>>>>>>>>>>>>>>>>>>> START >>>>>>>>>>>>>>>>>>>>>>>
-[options]
 
-
-# A) Database Settings
-# ==================
-admin_passwd = Start@123
-db_host = 34.70.240.33
-db_name = KAM
-db_password = Start@123
-db_port = 5432
-db_user = odoo
-db_template = template0
-db_maxconn = 64
-dbfilter = KAM
-list_db= True
-
-# B) Logs Settings (log_level=debug_rpc)
-# ====================================
-
-logfile = /var/log/odoo/odoo-server.log
-
-# B-1) Log Level
-# -------------------------------------------------------------
-# info                / [':INFO']
-# critical            / ['openerp:CRITICAL', 'werkzeug:CRITICAL']
-# error               / ['openerp:ERROR', 'werkzeug:ERROR']
-# warn                / ['openerp:WARNING', 'werkzeug:WARNING']
-# debug               / ['openerp:DEBUG']
-# debug_sql           / ['openerp.sql_db:DEBUG']
-# debug_rpc           / ['openerp:DEBUG','openerp.http.rpc.request:DEBUG']
-# debug_rpc_answer    / ['openerp:DEBUG','openerp.http.rpc.request:DEBUG','openerp.http.rpc.response:DEBUG']
-
-log_level = debug_rpc
-
-# B-2) True/False. If True, create a daily log file and keep 30 files.
-#---------------------------------------------------------------
-logrotate = True
-
-
-# B-3) Ture/False. If True, also write log to 'ir_logging' table in database
-#-----------------------------------------------------------------------------
-log-db = True
-
-# B-4) True/False logs to the system's event logger: syslog
-#-----------------------------------------------------------------------------
-syslog = False
-
-
-# C) Service Settings
-# =================
-
-# Disable the HTTP and Longpolling services entirely - Default = True
-http_enable = True
-
-# Listen interface address for HTTP services. Keep empty to listen on all interfaces (0.0.0.0)
-#http_interface = 35.225.171.250
-
-# Listen port for the main HTTP service - Default = 8069
-#http_port = 8069
-
-# Listen port for the longpolling HTTP service - Default = 8072
-#longpolling_port = 8072
-
-# Activate reverse proxy WSGI wrappers (headers rewriting) Only enable this when running behind a trusted web proxy! - Default =  False
-proxy_mode = False
-
-
-# Add On Path
-addons_path = /usr/lib/python3/dist-packages/odoo/addons
-
-
-# D) Builtin server
-# ===================
-# Specify the number of workers, 0 disable prefork mode.
-workers = 2
-
-# Maximum allowed virtual memory per worker, when reached the worker be reset after the current request (default 2048MiB).
-# Default = 2048 * 1024 * 1024
-limit_memory_soft = 4294967296
-
-# Maximum allowed virtual memory per worker, when reached, any memory allocation will fail (default 2560MiB).
-# default = 2560 * 1024 * 1024
-limit_memory_hard = 5368709120
-
-# Maximum allowed CPU time per request (default 60)
-limit_time_cpu = 120
-
-# Maximum allowed Real time per request (default 120).
-limit_time_real = 240
-
-# Maximum allowed Real time per cron job. (default: --limit-time-real).  Set to 0 for no limit.
-limit_time_real_cron = 0
-
-# Maximum number of request to be processed per worker (default 8192).
-limit_request = 8192
-
-# Maximum number of threads processing concurrently cron jobs (default 2).
-max_cron_threads = 1
-
-#>>>>>>>>>>>>>>>>>>>>> END >>>>>>>>>>>>>>>>>>>>>>>
 # Ctrl + O then enter
 # Ctrl + x then enter
 
@@ -297,8 +197,10 @@ sudo -u postgres psql
 \du
 >> no user found except postgress
 create user bmannaa with encrypted password 'mypass';
-ALTER USER bmannaa CREATEDB
-ALTER USER bmannaa SUPERUSER 
+ALTER USER bmannaa CREATEDB;
+ALTER USER bmannaa SUPERUSER ;
+ALTER USER odoo CREATEDB;
+ALTER USER bmodooannaa SUPERUSER ;
 \du
 
 
